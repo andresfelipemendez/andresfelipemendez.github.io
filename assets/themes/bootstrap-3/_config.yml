@@ -5,16 +5,19 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
 
+# https://help.github.com/articles/migrating-your-pages-site-from-maruku
+markdown: kramdown
+
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : Jekyll Bootstrap
+title : Jekyll Bootstrap-3
 tagline: Site Tagline
 author :
-  name : Andres Felipe Mendez
+  name : Name Lastname
   email : blah@email.test
-  github : andresfelipemendez
-  twitter : cleavergames_
+  github : username
+  twitter : username
   feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
@@ -25,9 +28,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://andresfelipemendez.github.io
-
-gems: ["jekyll-sitemap"]
+production_url : http://username.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -94,8 +95,6 @@ JB :
       num_posts: 5
       width: 580
       colorscheme: light
-    duoshuo :
-      short_name : jekyllbootstrap
 
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
@@ -103,12 +102,13 @@ JB :
   #
   analytics :
     provider : google
-    gauges :
-        site_id : 'SITE ID'
     google :
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-***'
+    googleUA :
+        tracking_id : 'UA-***'
+        property_name : 'PROPERTY NAME'
     getclicky :
-      site_id :
+      site_id : 
     mixpanel :
         token : '_MIXPANEL_TOKEN_'
     piwik :
@@ -133,3 +133,4 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
+  
