@@ -8,3 +8,7 @@
     padding:  1rem;
     border-radius: 50%;
 }
+
+article.card {
+    margin-top: 1.5rem;
+}
