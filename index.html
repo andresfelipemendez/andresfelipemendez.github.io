@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andres Felipe Mendez projects</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet" > 
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <meta name="theme-color" content="#fafafa">
 </head>
+
 <body class="bg-primary" >
-    <div class="container">
+
+  <div class="container">
         <div class="row">
             <aside class="col-sm-3 col-sm-offset-top">
-                <div class="row">            
+                <div class="row">
                     <div class="card col" >
                         <img src="profile.jpg" class="round-image" alt="..."/>
                         <div class="card-body">
@@ -36,15 +51,25 @@
                                 <p>To get the project code and run it follow these steps:</p>
                                 <ol>
                                     <li>Clone the repository</li>
+                                    <li>Install vcpkg</li>
+                                    <li>Configure your IDE to use vcpkg</li>
+                                    <li>Install the following libraries for your arqutiecture and platform:
+                                      <ul>
+                                        <li><code>glfw3:x64-windows</code></li>
+                                        <li><code>sqlite-orm:x64-windows</code></li>
+                                        <li><code>glm:x64-windows</code></li>
+                                        <li><code>tinygltf:x64-windows</code></li>
+                                      </ul>
+                                    </li>
                                     <li>excecute the setup.sh script to create the build folder </li>
                                     <li>then invoke the build.sh to generate the Make file </li>
                                     <li>then invoke the make command to build the project </li>
                                 </ol>
-                                
+
                                 <p>to launch the built engine use the command <code> $ ./Engine</code> from the terminal in the cloned directory to use it as the working path to find the referenced resources</p>
                             </div>
                         </article>
-                        
+
                         <!-- <article class="card" >
                             <img src="..." class="card-img-top" alt="..."/>
                             <div class="card-body">
@@ -56,6 +81,16 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
 </body>
+
 </html>
