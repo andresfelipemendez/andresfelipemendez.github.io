@@ -1,0 +1,237 @@
+/* Base styles for the personal website of Andrés Felipe Mendez.
+   This CSS embraces a restrained brutalist aesthetic with large
+   typographic elements, generous whitespace and a minimal colour
+   palette. A simple grid system helps organise content into
+   modular blocks. */
+
+/* CSS variables centralise the colour palette and font choices. */
+:root {
+  --background: #f6f6f6;
+  --foreground: #0a0a0a;
+  --accent: #00c49a; /* subtle neon green accent */
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans‑serif;
+  --max-width: 1100px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+
+/* A shared container class to centre content and set a max width */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Navigation bar styles */
+header {
+  background: var(--background);
+  border-bottom: 1px solid var(--foreground);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+nav .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--foreground);
+  font-weight: 500;
+  position: relative;
+}
+
+/* Underline effect on hover to suggest interactivity without heavy decoration */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  transform-origin: left;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  transform: scaleX(1);
+}
+
+/* Hero section with bold typography */
+.hero {
+  padding: 6rem 0 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  margin: 0;
+  line-height: 0.9;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--foreground);
+  color: var(--background);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+/* Section styling with large section numbers */
+section {
+  border-bottom: 1px solid var(--foreground);
+  padding-top: 4rem;
+  margin-top: 4rem;
+}
+
+section:last-child {
+  border-bottom: 0px solid var(--foreground);
+}
+
+section .section-header {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.section-number {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  color: var(--foreground);
+  opacity: 0.95;
+  margin-right: -1rem;
+  line-height: 1;
+}
+
+.section-title {
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-size: 5rem;
+  margin: 0rem 0rem 0rem 2rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+/* About page grid for skills and experience */
+.skills-grid, .experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  border: 1px solid var(--foreground);
+  padding: 1.5rem;
+  background: var(--background);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  background: var(--accent);
+  color: var(--background);
+  transform: translateY(-4px);
+}
+
+/* Project cards styling */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  border: 1px solid var(--foreground);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--background);
+  transition: background 0.2s ease;
+}
+
+.project-card:hover {
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card a {
+  margin-top: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--foreground);
+  border-bottom: 2px solid var(--accent);
+}
+
+.project-card a:hover {
+  color: var(--background);
+  border-bottom-color: var(--foreground);
+}
+
+/* Footer styling */
+footer {
+  border-top: 1px solid var(--foreground);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f6f6f6;
+    --accent: #0aff9d;
+  }
+}

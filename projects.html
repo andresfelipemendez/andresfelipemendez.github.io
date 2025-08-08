@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact – Andrés Felipe Mendez</title>
+    <title>Projects – Andrés Felipe Mendez</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -23,39 +23,24 @@
     </header>
     <main class="container">
       <section class="container">
+      
       <div class="section-header">
         <div class="section-number">0</div>
-        <h2 class="section-title">Get in Touch</h2>
+        <h2 class="section-title">Projects</h2>
       </div>
       <p>
-        Whether you want to collaborate on an open source engine, discuss
-        performance optimisation or just say hello, I'd love to hear from you.
+        Here you'll find a selection of my public code repositories. Many of
+        these projects are experiments in engine architecture, custom tooling
+        and performance profiling. I publish my work openly to encourage
+        learning and collaboration.
       </p>
-      <div class="skills-grid">
-        <div class="card">
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:fmendez1212@gmail.com">fmendez1212@gmail.com</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>LinkedIn</h3>
-          <p>
-            <a href="https://linkedin.com/in/andras-felipe-mendez-03872657" target="_blank" rel="noopener">linkedin.com/in/andras-felipe-mendez-03872657</a>
-          </p>
-        </div>
-        <div class="card">
-          <h3>GitHub</h3>
-          <p>
-            <a href="https://github.com/andresfelipemendez" target="_blank" rel="noopener">github.com/andresfelipemendez</a>
-          </p>
-        </div>
-      </div>
+      <div id="projects" class="projects-container"></div>
       </section>
     </main>
     <footer>
       <p>&copy; <span id="year"></span> Andrés&nbsp;Felipe&nbsp;Mendez. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
