@@ -141,7 +141,7 @@ section .section-header {
 
 .section-number {
   font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: 7rem;
   font-weight: 900;
   color: var(--foreground);
   opacity: 0.95;
