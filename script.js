@@ -1,55 +1,75 @@
-/*
- * Simple JavaScript helper functions for the personal website.
- *
- * On the projects page this script fetches public repositories from
- * GitHub and renders them into the projects container. It sorts
- * repositories by stargazers count, hides forks and archives, and
- * displays key metadata like language and description.
- */
+const projects = [
+  {
+    name: "Forge",
+    description: "Custom C99 build tool that replaces CMake/Make, watches source files to compile engine libraries for hot-reloading, and generates game engine templates. Built to eliminate the repetitive setup work of starting new toy engines.",
+    language: "C",
+    stars: 0,
+    url: "https://github.com/andresfelipemendez/zentropy-engine",
+    image: "forge.png"
+  },
+  {
+    name: "100 dungeons",
+    description: "Zelda-inspired 3D dungeon game powered by a custom C++ engine with multi-level DLL hot-reloading, custom ECS, automated TOML-based entity serialization, and OpenGL 4.5 rendering. Features fastgltf asset loading, ImGui editor tools, and a build system written in C for rapid iteration.",
+    language: "C++",
+    stars: 3,
+    url: "https://github.com/andresfelipemendez/zentropy-engine",
+    image: "https://github.com/andresfelipemendez/100-Dungeons/blob/master/gifs/gizmo.gif?raw=true"
+  },
+  {
+    name: "Anitra Engine",
+    description: "Data-oriented C++20 game engine with modern OpenGL rendering, GLFW cross-platform support, ECS, and DLL hot reloading. Built for performance and flexibility with planned ImGui integration, glTF asset loading, and STB-based utilities.",
+    language: "C++",
+    stars: 4,
+    url: "https://github.com/andresfelipemendez/anitra",
+    image: "https://github.com/andresfelipemendez/anitra/raw/master/hotreloadingdemo.gif"
+  },
+  {
+    name: "C DOD Engine Windows",
+    description: "Direct3D 11 game engine in pure C, featuring DLL hot reloading, ECS with archetype-based memory layout, and a data-oriented design approach. Initially built for a Pong demo, designed for cross-platform potential.",
+    language: "C",
+    stars: 2,
+    url: "https://github.com/andresfelipemendez/zentropy-engine",
+    image: "https://github.com/andresfelipemendez/C-D3D11-Engine/raw/master/pong-c.gif"
+  },
+  {
+    name: "Game Programming in C++: Data-Oriented Design Implementation",
+    description: "Adaptation of examples from 'Game Programming in C++' with a modern data-oriented design approach, replacing outdated formats with GLTF, integrating ENTT ECS, and optimizing asset handling for current industry standards.",
+    language: "C",
+    stars: 1,
+    url: "https://github.com/andresfelipemendez/zentropy-engine",
+    image: "gameprogrammingincpp.jpg"
+  },
+]
 
 async function loadProjects() {
   const container = document.getElementById('projects');
   if (!container) return; // Only run on projects page
 
-  try {
-    const response = await fetch('https://api.github.com/users/andresfelipemendez/repos?per_page=100');
-    if (!response.ok) {
-      throw new Error('Failed to fetch repositories');
-    }
-    const repos = await response.json();
-    // Filter out forks and archived repositories
-    const filtered = repos.filter(repo => !repo.fork && !repo.archived);
-    // Sort by stargazers count descending
-    filtered.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    // Render each repository into the DOM
-    filtered.forEach(repo => {
-      const card = document.createElement('div');
-      card.className = 'project-card';
-      const title = document.createElement('h3');
-      title.textContent = repo.name;
-      card.appendChild(title);
-      if (repo.description) {
-        const desc = document.createElement('p');
-        desc.textContent = repo.description;
-        card.appendChild(desc);
-      }
-      const meta = document.createElement('p');
-      meta.innerHTML = `Language: <strong>${repo.language || 'N/A'}</strong><br />⭐ ${repo.stargazers_count}`;
-      card.appendChild(meta);
-      const link = document.createElement('a');
-      link.href = repo.html_url;
-      link.target = '_blank';
-      link.rel = 'noopener';
-      link.textContent = 'View on GitHub';
-      card.appendChild(link);
-      container.appendChild(card);
-    });
-  } catch (err) {
-    console.error(err);
-    const errorMsg = document.createElement('p');
-    errorMsg.textContent = 'Unable to load projects at this time.';
-    container.appendChild(errorMsg);
-  }
+  projects.forEach(project => {
+    const card = document.createElement('article');
+    card.className = "project-card";
+
+    const image = document.createElement('img');
+    image.src = project.image;
+    image.alt = project.name;
+    image.className = 'project-image';
+    card.appendChild(image);
+
+    const content = document.createElement('div');
+    content.className = 'project-content';
+
+    const title = document.createElement('h3');
+    title.textContent = project.name;
+    content.appendChild(title);
+
+    const desc = document.createElement('p');
+    desc.textContent = project.description;
+    content.appendChild(desc);
+
+    card.appendChild(content);
+    container.appendChild(card);
+  });
+
 }
 
 // Run the loader when the DOM is ready
