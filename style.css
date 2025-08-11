@@ -1,21 +1,4 @@
 @font-face {
-  font-family: 'iA Writer Quattro';
-  src: url('iA-Fonts-master/iA Writer Quattro/Webfonts/iAWriterQuattroS-Regular.woff2') format('woff2'),
-    url('iA-Fonts-master/iA Writer Quattro/Webfonts/iAWriterQuattroS-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'iA Writer Quattro';
-  src: url('iA-Fonts-master/iA Writer Quattro/Webfonts/iAWriterQuattroS-Bold.woff2') format('woff2'),
-    url('iA-Fonts-master/iA Writer Quattro/Webfonts/iAWriterQuattroS-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* Mono for section numbers */
-@font-face {
   font-family: 'iA Writer Mono';
   src: url('iA-Fonts-master/iA Writer Mono/Webfonts/iAWriterMonoS-Regular.woff2') format('woff2'),
     url('iA-Fonts-master/iA Writer Mono/Webfonts/iAWriterMonoS-Regular.woff') format('woff');
@@ -37,7 +20,7 @@
   --foreground: #0a0a0a;
   --accent: #00c49a;
   /* subtle neon green accent */
-  --font-sans: 'iA Writer Quattro', sans-serif;
+  --font-sans: 'iA Writer Mono', sans-serif;
   --max-width: 1100px;
 }
 
@@ -51,7 +34,6 @@ body {
   line-height: 1.6;
 }
 
-/* A shared container class to centre content and set a max width */
 .container {
   width: 90%;
   max-width: var(--max-width);
@@ -59,7 +41,11 @@ body {
   padding: 2rem 0;
 }
 
-/* Navigation bar styles */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 header {
   background: var(--background);
   border-bottom: 1px solid var(--foreground);
@@ -94,7 +80,6 @@ nav a {
   position: relative;
 }
 
-/* Underline effect on hover to suggest interactivity without heavy decoration */
 nav a::after {
   content: "";
   position: absolute;
@@ -113,7 +98,6 @@ nav a:focus::after {
   transform: scaleX(1);
 }
 
-/* Hero section with bold typography */
 .hero {
   padding: 6rem 0 4rem;
   display: grid;
@@ -183,7 +167,6 @@ section .section-header {
   z-index: 1;
 }
 
-/* About page grid for skills and experience */
 .skills-grid,
 .experience-grid {
   display: grid;
@@ -199,13 +182,21 @@ section .section-header {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
+.card h3 {
+  margin: 0;
+}
+
+.card ul {
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+}
+
 .card:hover {
   background: var(--accent);
   color: var(--background);
   transform: translateY(-4px);
 }
 
-/* Project cards styling */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -238,6 +229,8 @@ section .section-header {
 }
 
 .project-content {
+  text-align: justify;
+  text-justify: inter-word;
   padding: 1.5rem;
   flex: 1;
   display: flex;
